@@ -1,3 +1,3 @@
-module github.com/roaldnefs/go-dsmr
+module github.com/averzicco/go-dsmr
 
 go 1.13

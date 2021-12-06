@@ -32,6 +32,62 @@ type Telegram struct {
 	DataObjects map[string]DataObject
 }
 
+func (t Telegram) MeterCumulativeActiveImport() (string, bool) {
+	if do, ok := t.DataObjects["1-0:1.8.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
+func (t Telegram) MeterCumulativeActiveExport() (string, bool) {
+	if do, ok := t.DataObjects["1-0:2.8.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
+func (t Telegram) MeterCumulativeReactiveImport() (string, bool) {
+	if do, ok := t.DataObjects["1-0:3.8.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
+func (t Telegram) MeterCumulativeReactiveExport() (string, bool) {
+	if do, ok := t.DataObjects["1-0:4.8.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
+func (t Telegram) MeterReadingElectricityActiveImportL1() (string, bool) {
+	if do, ok := t.DataObjects["1-0:21.7.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
+func (t Telegram) MeterReadingElectricityActiveExportL1() (string, bool) {
+	if do, ok := t.DataObjects["1-0:22.7.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
+func (t Telegram) MeterReadingElectricityRectiveImportL1() (string, bool) {
+	if do, ok := t.DataObjects["1-0:23.7.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
+func (t Telegram) MeterReadingElectricityReactiveExportL1() (string, bool) {
+	if do, ok := t.DataObjects["1-0:24.7.0"]; ok {
+		return do.Value, true
+	}
+	return "", false
+}
+
 // MeterReadingElectricityDeliveredToClientTariff1 returns the meter reading
 // electricity delivered to client (Tariff 1) in 0,001 kWh.
 func (t Telegram) MeterReadingElectricityDeliveredToClientTariff1() (string, bool) {
